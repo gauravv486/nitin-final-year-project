@@ -1,0 +1,42 @@
+[
+  {
+    "date": "2026-10-24",
+    "macrostructure": "Workbench",
+    "theme": "studied-DNA",
+    "theme_axes": "light paper / grotesk-sans display / indigo-navy accent",
+    "vibe": "sampled swatches: pale blue, mint, lilac + deep navy",
+    "nav": "N1b SaaS three-section (links=5, lilac+navy pill pair)",
+    "footer": "Ft3 Index columns (cols=5)",
+    "hero": "H9 Custom illustration + H8 mockup split",
+    "enrichment": "E-TierB hand-built SVG (balance + ledger)",
+    "source": "url https://jurisdesk.in/ + user-supplied colour swatches",
+    "brief": "CA-OS v3 - palette replaced with sampled swatches, pricing rebuilt as 4-tier comparison",
+    "note": "Supersedes v2 lime. accent #0f1851 works as text (15.67:1) and fill (16.54:1)."
+  },
+  {
+    "date": "2026-10-24",
+    "macrostructure": "Workbench",
+    "theme": "studied-DNA",
+    "theme_axes": "light paper / grotesk-sans display / yellow-green accent",
+    "vibe": "reference palette carried exactly, acid lime",
+    "nav": "N1b SaaS three-section (links=5)",
+    "footer": "Ft3 Index columns (cols=5)",
+    "hero": "H9 Custom illustration + H8 mockup split",
+    "enrichment": "E-TierB hand-built SVG (balance + ledger)",
+    "source": "url https://jurisdesk.in/",
+    "brief": "CA-OS v2 - all 16 modules, landing page matched to reference structure and palette",
+    "note": "Supersedes the v1 teal build. User-directed deviations on gates 3, 23, 24, 38, 43 recorded in tokens.css."
+  },
+  {
+    "date": "2026-10-24",
+    "macrostructure": "Workbench",
+    "theme": "studied-DNA",
+    "theme_axes": "light paper / grotesk-sans display / teal accent",
+    "nav": "N1b SaaS three-section (links=4)",
+    "footer": "Ft2 Inline single line",
+    "hero": "H8 Mockup Split",
+    "enrichment": "none",
+    "source": "url https://jurisdesk.in/",
+    "brief": "CA-OS v1 - 6 modules, muted teal accent (superseded)"
+  }
+]

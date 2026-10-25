@@ -1,0 +1,37 @@
+# Tool configuration only. Dependencies live in requirements*.txt, which keeps
+# `pip install -r` working without anyone needing to know what a build backend
+# is.
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv", "alembic/versions", "data", "artifacts"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "UP",   # pyupgrade
+    "B",    # bugbear
+    "SIM",  # simplify
+    "C4",   # comprehensions
+    "RUF",
+]
+ignore = [
+    "B008",  # FastAPI's Depends() in defaults is the documented idiom
+    "E501",  # line length is handled by the formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q --strict-markers"
+markers = [
+    "db: needs a live PostgreSQL connection",
+    "slow: model training or embedding; excluded from the default run",
+]
+filterwarnings = ["ignore::DeprecationWarning"]

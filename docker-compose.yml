@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # The AI Backend powered by FastAPI
+  fastapi-ai:
+    build: 
+      context: ./fastapi-ai-backend
+    container_name: fastapi-ai
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres-db:5432/compliance_db
+      - API_KEY=ca_ai_super_secret_key_2026
+    volumes:
+      - ./fastapi-ai-backend/models:/app/models # Mount models directory so large weights aren't baked into the image
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # The Postgres Database
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: postgres-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=compliance_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

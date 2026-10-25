@@ -1,0 +1,13 @@
+# Optional heavy ML stack - Phase 6 (case-law RAG) only.
+#
+# sentence-transformers pulls in torch and transformers: roughly 2 GB on disk.
+# Install it only when you start building the semantic search:
+#
+#   pip install -r requirements-ml.txt
+#
+# This machine has no NVIDIA GPU, so this resolves to the CPU build of torch.
+# That is fine for embedding a case-law corpus - encoding is a batch job you run
+# once, not a per-request cost - but it rules out local training or serving of a
+# large language model. See README.md "Hardware reality".
+
+sentence-transformers==6.2.0
